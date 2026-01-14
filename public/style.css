@@ -1,0 +1,308 @@
+/* ===============================
+   CINEMATIC BOTANICAL THEME
+   =============================== */
+
+/* Root Variables */
+:root {
+    --deep-forest: #0f1f18;
+    --pine-green: #1c3b2b;
+    --emerald: #3c7a5a;
+    --charcoal: #111413;
+    --black: #070909;
+  
+    --text-main: #e9f1ec;
+    --text-soft: #b9cfc3;
+  
+    --glass-bg: rgba(20, 45, 33, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  
+    --glow: rgba(120, 220, 180, 0.12);
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at top left, #0f261c, #050807);
+    color: var(--text-main);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Layout Container */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* ===============================
+   SLIDESHOW (80%)
+   =============================== */
+
+.slideshow-section {
+    width: 80%;
+    height: 100vh;
+    position: relative;
+    background: var(--charcoal);
+    overflow: hidden;
+}
+
+/* Slideshow background overlay */
+.slideshow-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        to right,
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0)
+      );
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* Slide elements */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Apply zoom animation only to active slide */
+.slide.active .slide-image {
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+/* Slow cinematic zoom */
+@keyframes slowZoom {
+    from {
+        transform: scale(1.02);
+    }
+    to {
+        transform: scale(1.08);
+    }
+}
+
+/* ===============================
+   INFO PANEL (20%)
+   =============================== */
+
+.info-panel {
+    width: 20%;
+    height: 100vh;
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border-left: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 70px 45px;
+    gap: 60px;
+    overflow-y: auto;
+    box-shadow:
+      inset 0 0 40px rgba(0,0,0,0.4),
+      -10px 0 40px rgba(0,0,0,0.6);
+}
+
+/* ===============================
+   INFO BLOCKS
+   =============================== */
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+/* Labels (NAME / ADDRESS / EMAIL) */
+.info-label {
+    font-family: 'Dancing Script', 'Playfair Display', 'Cormorant Garamond', serif !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.2em !important;
+    text-transform: none !important;
+    color: var(--text-soft) !important;
+    opacity: 0.9 !important;
+    font-style: italic !important;
+}
+
+/* Content text */
+.info-content {
+    font-size: 18px !important;
+    font-weight: 300 !important;
+    line-height: 1.7 !important;
+    letter-spacing: 0.03em !important;
+    color: var(--text-main) !important;
+    font-family: 'Inter', sans-serif !important;
+}
+
+/* ===============================
+   TITLE BLOCK (SEABUD NURSERY)
+   =============================== */
+
+.title-block .info-label {
+    font-family: 'Dancing Script', 'Playfair Display', 'Cormorant Garamond', serif !important;
+    font-size: 72px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.08em !important;
+    color: #eaf7f1 !important;
+    text-transform: none !important;
+    position: relative !important;
+    font-style: italic !important;
+    text-shadow:
+      0 0 20px var(--glow),
+      0 0 60px rgba(120, 220, 180, 0.3),
+      0 0 80px rgba(0,0,0,0.5) !important;
+    transform: translateY(-5px) !important;
+    line-height: 1.2 !important;
+}
+
+/* Elegant underline */
+.title-block .info-label::after {
+    content: "";
+    width: 70px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      rgba(150, 240, 200, 0.6),
+      rgba(150, 240, 200, 0.1)
+    );
+    display: block;
+    margin-top: 14px;
+}
+
+/* ===============================
+   SCROLLBAR
+   =============================== */
+
+.info-panel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.info-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.info-panel::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      to bottom,
+      var(--emerald),
+      transparent
+    );
+    border-radius: 4px;
+}
+
+/* ===============================
+   TABLET
+   =============================== */
+
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .slideshow-section {
+        width: 100%;
+        height: 65vh;
+    }
+
+    .info-panel {
+        width: 100%;
+        height: 35vh;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 35px 40px;
+        gap: 40px;
+        border-left: none;
+        border-top: 1px solid var(--glass-border);
+    }
+
+    .title-block .info-label {
+        font-size: 3rem !important;
+    }
+    
+    .info-label {
+        font-size: 1.1rem !important;
+    }
+    
+    .info-content {
+        font-size: 1rem !important;
+    }
+}
+
+/* ===============================
+   MOBILE
+   =============================== */
+
+@media (max-width: 768px) {
+    .slideshow-section {
+        height: 60vh;
+    }
+
+    .info-panel {
+        height: 40vh;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 35px;
+    }
+
+    .info-block {
+        align-items: center;
+    }
+
+    .title-block .info-label {
+        font-size: 2.5rem !important;
+        letter-spacing: 0.08em !important;
+    }
+    
+    .info-label {
+        font-size: 1rem !important;
+    }
+
+    .info-content {
+        font-size: 0.95rem !important;
+    }
+}
