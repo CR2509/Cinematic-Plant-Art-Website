@@ -124,13 +124,6 @@ After deployment, your site will be available at:
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 👤 Author
-
-**Seabud Nursery**
-- Address: No.96, Between 8th & 10th Cross, Temple Road, Malleshwaram, Bengaluru-560 003
-- Email: Rajashekar.m05@gmail.com
-- Phone: +91 9448970913
-
 ## 🙏 Acknowledgments
 
 - Fonts provided by [Google Fonts](https://fonts.google.com)
