@@ -13,7 +13,7 @@
         }
 
         let currentSlide = 0;
-        const slideInterval = 5000; // 5 seconds
+        const slideInterval = 6000; // 5 seconds
 
         // Ensure first slide is active
         slides[0].classList.add('active');
